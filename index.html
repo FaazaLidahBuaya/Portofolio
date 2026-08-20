@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Faza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        // Mengatur Inter sebagai font utama
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Animasi gradasi bergerak */
+        .animated-gradient {
+            background: linear-gradient(-45deg, #ffffff, #9ca3af, #4b5563, #ffffff);
+            background-size: 400% 400%;
+            animation: gradientMove 8s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        #typewriter {
+            white-space: normal;
+            word-wrap: break-word;
+            border-right: none;
+        }
+
+        #typewriter.typing {
+            border-right: .15em solid orange;
+            animation: blink-caret .75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: orange;
+            }
+        }
+
+        /* Mengatur transisi untuk modal */
+        #blogModal {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #modalContentContainer {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-800" id="Home">
+    <header class="relative h-screen w-full overflow-hidden">
+        <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+            <source src="vd/BG2.mp4" type="video/mp4" />
+            Browser Anda tidak mendukung video.
+        </video>
+        <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+            <div
+                class="flex bg-black bg-opacity-30 backdrop-blur-md rounded-full px-2 md:px-6 py-2 text-white shadow-md border border-white/10">
+                <!-- Tambahkan class 'group' di tag <a> -->
+                <a href="#Home" class="px-2 md:px-4 cursor-pointer group">
+                    <span class="relative">
+                        Home
+                        <!-- Garis bawah animasi -->
+                        <span
+                            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                    </span>
+                </a>
+                <a href="#about" class="px-2 md:px-4 cursor-pointer group">
+                    <span class="relative">
+                        About Me
+                        <!-- Garis bawah animasi -->
+                        <span
+                            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                    </span>
+                </a>
+
+                <a href="#Project" class="px-2 md:px-4 cursor-pointer group">
+                    <span class="relative">
+                        Project
+                        <span
+                            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                    </span>
+                </a>
+
+            </div>
+        </nav>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full space-y-4 text-center px-4">
+            <p class="text-white text-2xl md:text-3xl font-bold">
+                Hi, I'm Faza | Programmer & 3D Modeling
+            </p>
+            <p class="text-white text-base md:text-lg font-semibold">
+                Welcome to my personal website
+            </p>
+        </div>
+    </header>
+
+    <section class="py-20 my md:py-20 bg-gray-500" id="about">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start px-4 my-32">
+            <div class="w-full md:w-1/2 md:pr-8 text-center md:text-left mb-8 md:mb-0">
+                <h1
+                    class="text-center font-bold text-3xl md:text-4xl text-white shadow-xl bg-black bg-opacity-15 rounded-xl py-3 px-2">
+                    Faza Achmad T.
+                </h1>
+                <div class="py-1 bg-black opacity-15 rounded-full my-4 shadow-xl"></div>
+                <div class="flex justify-center md:justify-start">
+                    <a href="https://github.com/FaazaLidahBuaya" target="_blank" rel="noopener noreferrer">
+                        <img src="Foto/github.png" class="w-12 h-12 mx-2">
+                    </a>
+                    </a>
+                    <a href="https://instagram.com/tfaaz_" target="_blank" rel="noopener noreferrer">
+                        <img src="Foto/ig.png" class="w-12 h-12 mx-2">
+                    </a>
+                    <a href="https://youtu.be/xvFZjo5PgG0?si=npVVp_EOKBPOCCfr" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="Foto/fb.png" class="w-12 h-12 mx-2">
+                    </a>
+                </div>
+                <div class="my-6 flex flex-col sm:flex-row gap-3">
+                    <button
+                        class="whitespace-nowrap bg-black hover:bg-opacity-20 text-white font-bold px-6 sm:px-10 md:px-20 py-3 rounded-xl transition duration-200 shadow-xl">
+                        Download CV
+                    </button>
+                    <a href="mailto:fazaachmadtaufiqiy@gmail.com"
+                        class="whitespace-nowrap text-center bg-gray-400 hover:bg-opacity-20 text-black font-bold px-6 sm:px-10 py-3 rounded-xl transition duration-200 shadow-xl">
+                        Gmail
+                    </a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <div class="relative mb-4 mx-auto w-full max-w-sm">
+                    <div
+                        class="hidden md:block absolute inset-0 bg-gray-400 rounded-xl shadow-xl transform rotate-12 translate-x-8">
+                    </div>
+                    <div
+                        class="hidden md:block absolute inset-0 bg-gray-500 rounded-xl shadow-xl transform rotate-6 translate-x-4">
+                    </div>
+                    <img src="Foto/Guah.jpg" alt="Foto Faza" class="relative rounded-xl shadow-xl mx-auto">
+                </div>
+                <p
+                    class="bg-black bg-opacity-15 rounded-xl px-3 py-3 shadow-xl text-lg md:text-xl text-white text-center md:text-left min-h-[180px] md:min-h-[150px]">
+                    <span id="typewriter"></span>
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Bagian Project Baru -->
+    <section id="Project" class="py-24 bg-gray-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Judul Section -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Projects</h1>
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto font-bold">
+                    Beberapa proyek yang telah saya kerjakan, mulai dari game development hingga aplikasi web.
+                </p>
+            </div>
+
+            <!-- 1. Featured Project (Card Utama) -->
+            <div
+                class="bg-white rounded-[2rem] shadow-sm border border-gray-200 p-4 md:p-6 mb-8 flex flex-col lg:flex-row gap-8">
+                <!-- BAGIAN KIRI: Layar Utama & Thumbnail -->
+                <div class="w-full lg:w-3/5 flex flex-col gap-4 overflow-hidden">
+
+                    <!-- Layar Utama (Slider) -->
+                    <div
+                        class="rounded-2xl overflow-hidden bg-gray-900 aspect-video relative shadow-sm border border-gray-200">
+                        <!-- Slider Track -->
+                        <div id="game-slider" class="flex w-full h-full transition-transform duration-500 ease-in-out"
+                            style="transform: translateX(0%);">
+
+                            <!-- Index 0: Video YouTube -->
+                            <div class="min-w-full h-full flex-shrink-0 relative">
+                                <iframe class="w-full h-full absolute inset-0"
+                                    src="https://www.youtube.com/embed/TwZUIhXiK84?si=cdxF38fXA1oUVDkI"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+
+                            <!-- Index 1: Screenshot 1 -->
+                            <div class="min-w-full h-full flex-shrink-0 bg-gray-800">
+                                <img src="Foto/1.png" alt="Gameplay 1" class="w-full h-full object-cover">
+                            </div>
+
+                            <!-- Index 2: Screenshot 2 -->
+                            <div class="min-w-full h-full flex-shrink-0 bg-gray-800">
+                                <img src="Foto/2.png" alt="Gameplay 2" class="w-full h-full object-cover">
+                            </div>
+
+                            <!-- Index 3: Screenshot 3 -->
+                            <div class="min-w-full h-full flex-shrink-0 bg-gray-800">
+                                <img src="Foto/3.png" alt="Gameplay 3" class="w-full h-full object-cover">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Kumpulan Thumbnail -->
+                    <div class="grid grid-cols-4 gap-2 md:gap-3">
+                        <!-- Thumb 0: Video (Ada icon play) -->
+                        <button onclick="pindahSlide(0)" id="thumb-0"
+                            class="rounded-xl overflow-hidden aspect-video bg-gray-800 border-2 border-yellow-500 opacity-100 hover:opacity-100 transition-all duration-300 relative group cursor-pointer">
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center transition-colors group-hover:bg-opacity-30">
+                                <svg class="w-6 h-6 text-white drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                            <!-- Pakai gambar thumbnail untuk video -->
+                            <img src="Foto/thum.png" alt="Video Trailer" class="w-full h-full object-cover">
+                        </button>
+
+                        <!-- Thumb 1: ss1.png -->
+                        <button onclick="pindahSlide(1)" id="thumb-1"
+                            class="rounded-xl overflow-hidden aspect-video bg-gray-800 border-2 border-transparent opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                            <img src="Foto/1.png" alt="SS 1" class="w-full h-full object-cover">
+                        </button>
+
+                        <!-- Thumb 2: ss2.png -->
+                        <button onclick="pindahSlide(2)" id="thumb-2"
+                            class="rounded-xl overflow-hidden aspect-video bg-gray-800 border-2 border-transparent opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                            <img src="Foto/2.png" alt="SS 2" class="w-full h-full object-cover">
+                        </button>
+
+                        <!-- Thumb 3: ss3.png -->
+                        <button onclick="pindahSlide(3)" id="thumb-3"
+                            class="rounded-xl overflow-hidden aspect-video bg-gray-800 border-2 border-transparent opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                            <img src="Foto/3.png" alt="SS 3" class="w-full h-full object-cover">
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Detail Konten -->
+                <div class="w-full lg:w-2/5 flex flex-col justify-center">
+                    <div
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 text-sm font-semibold text-gray-700 w-max mb-5">
+                        <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        Featured Project
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2">Gaoleh</h2>
+                    <p class="text-gray-500 font-medium mb-4">Horror psychology</p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Game horror psychology orang pertama yang berlatar di rumah lama penuh misteri. Pemain harus
+                        memecahkan teka-teki dan mengungkap rahasia kelam yang tersembunyi pada setiap Ending yang ada.
+                    </p>
+
+                    <!-- Tech Stack Tags -->
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span
+                            class="px-3 py-1.5 bg-gray-100 text-gray-600 text-xs font-semibold rounded-lg">Unity</span>
+                        <span class="px-3 py-1.5 bg-gray-100 text-gray-600 text-xs font-semibold rounded-lg">C#</span>
+                        <span
+                            class="px-3 py-1.5 bg-gray-100 text-gray-600 text-xs font-semibold rounded-lg">Blender</span>
+                        <span class="px-3 py-1.5 bg-gray-100 text-gray-600 text-xs font-semibold rounded-lg">Google
+                            Voice</span>
+                        <span
+                            class="px-3 py-1.5 bg-gray-100 text-gray-600 text-xs font-semibold rounded-lg">Texture</span>
+                    </div>
+
+                    <!-- Tombol Aksi -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://faza-achmad.itch.io/gaoleh" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-xl font-medium transition duration-200 hover:translate-y-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Lihat di itch.io
+                        </a>
+                        <button id="open3DMapBtn"
+                            class="flex items-center justify-center gap-2 border-2 border-gray-200 hover:bg-gray-50 text-gray-800 px-6 py-3 rounded-xl font-medium transition duration-200 hover:translate-y-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                            </svg>
+                            Lihat Map 3D
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Grid Projects Kecil -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Card: Sistem Perpustakaan -->
+                <div class="bg-white rounded-3xl p-4 shadow-sm border border-gray-200 flex flex-col">
+                    <div class="rounded-2xl overflow-hidden mb-5 bg-gray-100 aspect-[4/3]">
+                        <img src="Foto/Perpus.png" alt="Sistem Perpustakaan" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-500 font-semibold mb-3">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                            </path>
+                        </svg>
+                        Web Application
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Sistem Perpustakaan</h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
+                        Sistem informasi perpustakaan berbasis web untuk mengelola data buku, anggota, peminjaman, dan
+                        pengembalian.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">PHP</span>
+                        <span
+                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">MySQL</span>
+                        <span
+                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">Bootstrap</span>
+                        <span
+                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/FaazaLidahBuaya/SistemPeminjamanBuku" target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 border-2 border-gray-200 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 w-max transition duration-200 hover:translate-y-1">
+                        Lihat Detail
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card: Sistem Retail -->
+                <div class="bg-white rounded-3xl p-4 shadow-sm border border-gray-200 flex flex-col">
+                    <div class="rounded-2xl overflow-hidden mb-5 bg-gray-100 aspect-[4/3]">
+                        <img src="Foto/Retail.png" alt="Sistem Retail" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-500 font-semibold mb-3">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                            </path>
+                        </svg>
+                        Web Application
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Sistem Retail</h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
+                        Aplikasi kasir dan manajemen toko untuk mencatat penjualan, mengelola stok barang, dan laporan
+                        keuangan.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">PHP</span>
+                        <span
+                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">MySQL</span>
+                        <span
+                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">Bootstrap</span>
+                        <span
+                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">jQuery</span>
+                    </div>
+                    <a href="https://github.com/FaazaLidahBuaya/Sistem-Retail" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 border-2 border-gray-200 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 w-max transition duration-200 hover:translate-y-1">
+                        Lihat Detail
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card: Lorong Sunyi -->
+                <div class="bg-white rounded-3xl p-4 shadow-sm border border-gray-200 flex flex-col">
+                    <div class="rounded-2xl overflow-hidden mb-5 bg-gray-900 aspect-[4/3]">
+                        <img src="Foto/coming soon.jpeg" alt="Lorong Sunyi" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-500 font-semibold mb-3">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Game Development
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Silent Echoes(Coming Soon)</h3>
+                    <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
+                        Game horror dengan fokus pada atmosfer dan cerita psikologis.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">Unity</span>
+                        <span class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">C#</span>
+                        <span
+                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">Blender</span>
+                        <span
+                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">Texture</span>
+                    </div>
+                    <button
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 border-2 border-gray-200 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 w-max transition duration-200">
+                        Lihat di itch.io
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <div class="py-20 flex flex-col items-center justify-center bg-transparent overflow-hidden">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Memory</h1>
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto font-bold">
+                    Bukan Sekadar Model: Menyimpan Memori di Antara Sudut dan Tekstur.
+                </p>
+            </div>
+            <div id="shuffle-container" class="relative w-full max-w-2xl aspect-video mx-auto mb-10">
+
+                <!-- Foto 1 -->
+                <div
+                    class="shuffle-card absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out border-4 border-white bg-gray-800">
+                    <img src="Foto/Eye.jpg" alt="Foto 1" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Foto 2 -->
+                <div
+                    class="shuffle-card absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out border-4 border-white bg-gray-800">
+                    <img src="Foto/Eater.jpg" alt="Foto 2" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Foto 3 -->
+                <div
+                    class="shuffle-card absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out border-4 border-white bg-gray-800">
+                    <img src="Foto/Project.jpg" alt="Foto 3" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Foto 4 -->
+                <div
+                    class="shuffle-card absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out border-4 border-white bg-gray-800">
+                    <img src="Foto/foto2.jpg" alt="Foto 3" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Foto 5 -->
+                <div
+                    class="shuffle-card absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out border-4 border-white bg-gray-800">
+                    <img src="Foto/foto3.jpg" alt="Foto 3" class="w-full h-full object-cover">
+                </div>
+
+            </div>
+
+            <!-- Tombol Next -->
+            <button id="next-btn"
+                class="flex items-center justify-center w-14 h-14 bg-gray-800 hover:bg-gray-700 text-white rounded-full shadow-lg border-2 border-gray-600 transition duration-300 hover:scale-110 focus:outline-none">
+                <svg class="w-6 h-6 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+
+        </div>
+    </section>
+    <footer class="bg-gray-800 py-10">
+        <div class="mt-8 border-t border-gray-700 pt-6">
+            <p class="text-center text-sm text-gray-400">
+                © 2025 Faza Achmad T. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <div id="blogModal" class="fixed inset-0 z-50 items-center justify-center p-4 hidden opacity-0">
+        <div id="modalBackdrop" class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+
+        <div id="modalContentContainer"
+            class="relative bg-gray-800 w-11/12 md:max-w-2xl mx-auto rounded-lg shadow-2xl border-2 border-gray-600 transform scale-95">
+            <button id="closeModalBtn" class="absolute top-3 right-3 text-gray-400 hover:text-white z-10">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <div id="modalContent" class="max-h-[80vh] overflow-y-auto p-6 md:p-8 text-white">
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = Array.from(document.querySelectorAll('.shuffle-card'));
+            const nextBtn = document.getElementById('next-btn');
+            let isAnimating = false;
+
+            function renderCards() {
+                cards.forEach((card, index) => {
+                    // Pastikan class di sini juga pakai duration-300
+                    card.className = "shuffle-card absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out border-4 border-white bg-gray-800";
+
+                    if (index === 0) {
+                        // Foto 1 (Paling Depan)
+                        card.classList.add('z-50', 'scale-100', 'translate-x-0', 'translate-y-0', 'rotate-0', 'opacity-100');
+
+                    } else if (index === 1) {
+                        // Foto 2
+                        card.classList.add('z-40', 'scale-95', 'translate-x-6', 'translate-y-4', 'rotate-3', 'opacity-90');
+
+                    } else if (index === 2) {
+                        // Foto 3
+                        card.classList.add('z-30', 'scale-90', 'translate-x-12', 'translate-y-8', 'rotate-6', 'opacity-80');
+
+                    } else if (index === 3) {
+                        // Foto 4 (Menggunakan custom value agar transisinya mulus)
+                        card.classList.add('z-20', 'scale-[85%]', 'translate-x-[4.5rem]', 'translate-y-12', 'rotate-[9deg]', 'opacity-70');
+
+                    } else if (index === 4) {
+                        // Foto 5 (Paling Belakang)
+                        card.classList.add('z-10', 'scale-[80%]', 'translate-x-24', 'translate-y-16', 'rotate-12', 'opacity-60');
+
+                    } else {
+                        // Jika ada lebih dari 5 foto, sembunyikan di belakang layar
+                        card.classList.add('z-0', 'scale-75', 'opacity-0');
+                    }
+                });
+            }
+
+            renderCards();
+
+            nextBtn.addEventListener('click', () => {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                const topCard = cards[0];
+
+                topCard.classList.remove('scale-100', 'translate-x-0', 'rotate-0');
+                topCard.classList.add('-translate-x-[120%]', '-rotate-12', 'scale-105', 'opacity-0');
+
+                // Ubah angka di bawah ini dari 500 menjadi 300 agar sesuai dengan duration-300
+                setTimeout(() => {
+                    cards.push(cards.shift());
+                    renderCards();
+
+                    setTimeout(() => {
+                        isAnimating = false;
+                    }, 50); // Jeda tombol dipercepat dari 100ms ke 50ms
+                }, 300);
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            // --- Typewriter Effect ---
+            const typewriterElement = document.getElementById("typewriter");
+            const text = "I'm someone who's interested in programming and 3D modeling. I dream of creating my own website. 3D modeling allows me to unleash my creativity, creating a world or object.";
+            const speed = 50;
+            let i = 0;
+            let animationStarted = false;
+
+            function typeWriter() {
+                typewriterElement.classList.add("typing");
+                if (i < text.length) {
+                    typewriterElement.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                } else {
+                    typewriterElement.classList.remove("typing");
+                    typewriterElement.style.borderRight = "none";
+                }
+            }
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !animationStarted) {
+                        animationStarted = true;
+                        typeWriter();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            observer.observe(typewriterElement);
+
+            // --- Mendefinisikan Body (Penting untuk kedua modal) ---
+            const body = document.body;
+
+            // --- Modal Logic (Blog) ---
+            const modal = document.getElementById('blogModal');
+            const modalContentContainer = document.getElementById('modalContentContainer');
+            const modalBackdrop = document.getElementById('modalBackdrop');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const openModalBtns = document.querySelectorAll('.open-modal-btn');
+            const modalContent = document.getElementById('modalContent');
+
+            const openModal = (content) => {
+                modalContent.innerHTML = content;
+                modal.classList.remove('hidden');
+                body.style.overflow = 'hidden'; // Mencegah scroll di background
+                void modal.offsetWidth; // Trigger reflow
+                modal.classList.remove('opacity-0');
+                modalContentContainer.classList.remove('scale-95');
+                modalContentContainer.classList.add('scale-100');
+            };
+
+            const closeModal = () => {
+                modal.classList.add('opacity-0');
+                modalContentContainer.classList.remove('scale-100');
+                modalContentContainer.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    body.style.overflow = 'auto'; // Mengembalikan scroll
+                }, 300);
+            };
+
+            openModalBtns.forEach(button => {
+                button.addEventListener('click', () => {
+                    const card = button.closest('.blog-card');
+                    const title = card.querySelector('.blog-title').innerText;
+                    const imageSrc = card.querySelector('img').src;
+                    const fullDesc = card.querySelector('.blog-full-desc').innerHTML;
+                    const contentHTML = `
+                        <img src="${imageSrc}" alt="${title}" class="w-full h-56 md:h-64 object-cover rounded-lg mb-4 shadow-lg">
+                        <h2 class="text-3xl font-bold mb-4 text-white">${title}</h2>
+                        <div class="text-gray-300 space-y-4 prose prose-invert max-w-none">${fullDesc}</div>
+                    `;
+                    openModal(contentHTML);
+                });
+            });
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modalBackdrop.addEventListener('click', closeModal);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape" && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+
+            // --- 3D Modal Logic ---
+            const modal3D = document.getElementById('model3DModal');
+            const container3D = document.getElementById('model3DContainer');
+            const btnOpen3D = document.getElementById('open3DMapBtn');
+            const btnClose3D = document.getElementById('close3DMapBtn');
+            const backdrop3D = document.getElementById('model3DBackdrop');
+
+            const open3DModal = () => {
+                modal3D.classList.remove('hidden');
+                body.style.overflow = 'hidden'; // Sekarang variabel body dikenali!
+                void modal3D.offsetWidth;
+                modal3D.classList.remove('opacity-0');
+                container3D.classList.remove('scale-95');
+                container3D.classList.add('scale-100');
+            };
+
+            const close3DModal = () => {
+                modal3D.classList.add('opacity-0');
+                container3D.classList.remove('scale-100');
+                container3D.classList.add('scale-95');
+                setTimeout(() => {
+                    modal3D.classList.add('hidden');
+                    body.style.overflow = 'auto';
+                }, 300);
+            };
+
+            if (btnOpen3D) btnOpen3D.addEventListener('click', open3DModal);
+            if (btnClose3D) btnClose3D.addEventListener('click', close3DModal);
+            if (backdrop3D) backdrop3D.addEventListener('click', close3DModal);
+        });
+        // Fungsi untuk menggeser slider galeri
+        function pindahSlide(index) {
+            const slider = document.getElementById('game-slider');
+            const totalSlides = 4; // Jumlah total media (1 video + 3 foto)
+
+            // 1. Geser layar utama dengan smooth ke kiri/kanan
+            slider.style.transform = `translateX(-${index * 100}%)`;
+
+            // 2. Beri efek nyala (highlight) pada thumbnail yang sedang dipilih
+            for (let i = 0; i < totalSlides; i++) {
+                const thumb = document.getElementById(`thumb-${i}`);
+                if (i === index) {
+                    // Jika dipilih: Opacity 100% dan border kuning
+                    thumb.classList.add('border-yellow-500', 'opacity-100');
+                    thumb.classList.remove('border-transparent', 'opacity-50');
+                } else {
+                    // Jika tidak dipilih: Opacity 50% dan border transparan
+                    thumb.classList.remove('border-yellow-500', 'opacity-100');
+                    thumb.classList.add('border-transparent', 'opacity-50');
+                }
+            }
+        }
+    </script>
+    <!-- Modal 3D Map -->
+    <div id="model3DModal"
+        class="fixed inset-0 z-[60] flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+        <!-- Latar Belakang Gelap / Backdrop -->
+        <div id="model3DBackdrop" class="absolute inset-0 bg-black bg-opacity-80 backdrop-blur-sm cursor-pointer"></div>
+
+        <!-- Kontainer 3D -->
+        <div id="model3DContainer"
+            class="relative w-full max-w-5xl h-[80vh] bg-gray-900 rounded-2xl shadow-2xl border border-gray-700 flex flex-col overflow-hidden transform scale-95 transition-transform duration-300">
+
+            <!-- Tombol Close -->
+            <button id="close3DMapBtn"
+                class="absolute top-4 right-4 z-10 p-2 bg-black bg-opacity-50 hover:bg-opacity-100 rounded-full text-white transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- Pemutar 3D -->
+            <!-- Ganti src="Model/rumah.glb" dengan lokasi file .glb milikmu -->
+            <model-viewer src="Model/Rumahfix.glb" alt="Map 3D Rumah Lama" auto-rotate camera-controls
+                class="w-full h-full outline-none" shadow-intensity="1">
+            </model-viewer>
+
+            <!-- Petunjuk Penggunaan -->
+            <div class="absolute bottom-6 left-0 right-0 text-center pointer-events-none">
+                <p
+                    class="text-white text-sm bg-black bg-opacity-50 inline-block px-4 py-2 rounded-full border border-white/10 backdrop-blur-md shadow-lg">
+                    Gunakan kursor atau sentuhan untuk memutar & zoom
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
