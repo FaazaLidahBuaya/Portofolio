@@ -5,44 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portofolio Faza</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="./output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="Foto/pp.jpg">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        // Mengatur Inter sebagai font utama
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        /* Animasi gradasi bergerak */
-        .animated-gradient {
-            background: linear-gradient(-45deg, #ffffff, #9ca3af, #4b5563, #ffffff);
-            background-size: 400% 400%;
-            animation: gradientMove 8s ease infinite;
-        }
-
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+        /* Tambahan untuk menyembunyikan loading model-viewer saat selesai */
+        .hide {
+            display: none !important;
         }
 
         #typewriter {
@@ -68,14 +40,6 @@
             }
         }
 
-        /* Mengatur transisi untuk modal */
-        #blogModal {
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        #modalContentContainer {
-            transition: transform 0.3s ease-in-out;
-        }
     </style>
 </head>
 
@@ -85,9 +49,9 @@
             <source src="vd/BG2.mp4" type="video/mp4" />
             Browser Anda tidak mendukung video.
         </video>
-        <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+        <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-[100]">
             <div
-                class="flex bg-black bg-opacity-30 backdrop-blur-md rounded-full px-2 md:px-6 py-2 text-white shadow-md border border-white/10">
+                class="flex bg-black/30 backdrop-blur-md rounded-full px-2 md:px-6 py-2 text-white shadow-md border border-white/10">
                 <!-- Tambahkan class 'group' di tag <a> -->
                 <a href="#Home" class="px-2 md:px-4 cursor-pointer group">
                     <span class="relative">
@@ -126,18 +90,17 @@
         </div>
     </header>
 
-    <section class="py-20 my md:py-20 bg-gray-500" id="about">
+    <section class="py-20 md:py-20 bg-gray-500" id="about">
         <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start px-4 my-32">
             <div class="w-full md:w-1/2 md:pr-8 text-center md:text-left mb-8 md:mb-0">
                 <h1
-                    class="text-center font-bold text-3xl md:text-4xl text-white shadow-xl bg-black bg-opacity-15 rounded-xl py-3 px-2">
+                    class="text-center font-bold text-3xl md:text-4xl text-white shadow-xl bg-black/15 rounded-xl py-3 px-2">
                     Faza Achmad T.
                 </h1>
-                <div class="py-1 bg-black opacity-15 rounded-full my-4 shadow-xl"></div>
+                <div class="py-1 bg-black/15 rounded-full my-4 shadow-xl"></div>
                 <div class="flex justify-center md:justify-start">
                     <a href="https://github.com/FaazaLidahBuaya" target="_blank" rel="noopener noreferrer">
                         <img src="Foto/github.png" class="w-12 h-12 mx-2">
-                    </a>
                     </a>
                     <a href="https://instagram.com/tfaaz_" target="_blank" rel="noopener noreferrer">
                         <img src="Foto/ig.png" class="w-12 h-12 mx-2">
@@ -149,11 +112,11 @@
                 </div>
                 <div class="my-6 flex flex-col sm:flex-row gap-3">
                     <button
-                        class="whitespace-nowrap bg-black hover:bg-opacity-20 text-white font-bold px-6 sm:px-10 md:px-20 py-3 rounded-xl transition duration-200 shadow-xl">
+                        class="whitespace-nowrap bg-black hover:bg-black/20 text-white font-bold px-6 sm:px-10 md:px-20 py-3 rounded-xl transition duration-200 shadow-xl">
                         Download CV
                     </button>
                     <a href="mailto:fazaachmadtaufiqiy@gmail.com"
-                        class="whitespace-nowrap text-center bg-gray-400 hover:bg-opacity-20 text-black font-bold px-6 sm:px-10 py-3 rounded-xl transition duration-200 shadow-xl">
+                        class="whitespace-nowrap text-center bg-gray-400 hover:bg-gray-400/20 text-black font-bold px-6 sm:px-10 py-3 rounded-xl transition duration-200 shadow-xl">
                         Gmail
                     </a>
                 </div>
@@ -169,7 +132,7 @@
                     <img src="Foto/Guah.jpg" alt="Foto Faza" class="relative rounded-xl shadow-xl mx-auto">
                 </div>
                 <p
-                    class="bg-black bg-opacity-15 rounded-xl px-3 py-3 shadow-xl text-lg md:text-xl text-white text-center md:text-left min-h-[180px] md:min-h-[150px]">
+                    class="bg-black/15 rounded-xl px-3 py-3 shadow-xl text-lg md:text-xl text-white text-center md:text-left min-h-[180px] md:min-h-[150px]">
                     <span id="typewriter"></span>
                 </p>
             </div>
@@ -233,7 +196,7 @@
                         <button onclick="pindahSlide(0)" id="thumb-0"
                             class="rounded-xl overflow-hidden aspect-video bg-gray-800 border-2 border-yellow-500 opacity-100 hover:opacity-100 transition-all duration-300 relative group cursor-pointer">
                             <div
-                                class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center transition-colors group-hover:bg-opacity-30">
+                                class="absolute inset-0 bg-black/40 flex items-center justify-center transition-colors group-hover:bg-black/30">
                                 <svg class="w-6 h-6 text-white drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z" />
                                 </svg>
@@ -492,25 +455,7 @@
         </div>
     </footer>
 
-    <div id="blogModal" class="fixed inset-0 z-50 items-center justify-center p-4 hidden opacity-0">
-        <div id="modalBackdrop" class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
-
-        <div id="modalContentContainer"
-            class="relative bg-gray-800 w-11/12 md:max-w-2xl mx-auto rounded-lg shadow-2xl border-2 border-gray-600 transform scale-95">
-            <button id="closeModalBtn" class="absolute top-3 right-3 text-gray-400 hover:text-white z-10">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
-            <div id="modalContent" class="max-h-[80vh] overflow-y-auto p-6 md:p-8 text-white">
-            </div>
-        </div>
-    </div>
-
     <script>
-
         document.addEventListener("DOMContentLoaded", function () {
             const cards = Array.from(document.querySelectorAll('.shuffle-card'));
             const nextBtn = document.getElementById('next-btn');
@@ -608,61 +553,8 @@
 
             observer.observe(typewriterElement);
 
-            // --- Mendefinisikan Body (Penting untuk kedua modal) ---
+            // --- Mendefinisikan Body (dipakai oleh modal 3D) ---
             const body = document.body;
-
-            // --- Modal Logic (Blog) ---
-            const modal = document.getElementById('blogModal');
-            const modalContentContainer = document.getElementById('modalContentContainer');
-            const modalBackdrop = document.getElementById('modalBackdrop');
-            const closeModalBtn = document.getElementById('closeModalBtn');
-            const openModalBtns = document.querySelectorAll('.open-modal-btn');
-            const modalContent = document.getElementById('modalContent');
-
-            const openModal = (content) => {
-                modalContent.innerHTML = content;
-                modal.classList.remove('hidden');
-                body.style.overflow = 'hidden'; // Mencegah scroll di background
-                void modal.offsetWidth; // Trigger reflow
-                modal.classList.remove('opacity-0');
-                modalContentContainer.classList.remove('scale-95');
-                modalContentContainer.classList.add('scale-100');
-            };
-
-            const closeModal = () => {
-                modal.classList.add('opacity-0');
-                modalContentContainer.classList.remove('scale-100');
-                modalContentContainer.classList.add('scale-95');
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                    body.style.overflow = 'auto'; // Mengembalikan scroll
-                }, 300);
-            };
-
-            openModalBtns.forEach(button => {
-                button.addEventListener('click', () => {
-                    const card = button.closest('.blog-card');
-                    const title = card.querySelector('.blog-title').innerText;
-                    const imageSrc = card.querySelector('img').src;
-                    const fullDesc = card.querySelector('.blog-full-desc').innerHTML;
-                    const contentHTML = `
-                        <img src="${imageSrc}" alt="${title}" class="w-full h-56 md:h-64 object-cover rounded-lg mb-4 shadow-lg">
-                        <h2 class="text-3xl font-bold mb-4 text-white">${title}</h2>
-                        <div class="text-gray-300 space-y-4 prose prose-invert max-w-none">${fullDesc}</div>
-                    `;
-                    openModal(contentHTML);
-                });
-            });
-
-            closeModalBtn.addEventListener('click', closeModal);
-            modalBackdrop.addEventListener('click', closeModal);
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === "Escape" && !modal.classList.contains('hidden')) {
-                    closeModal();
-                }
-            });
-
             // --- 3D Modal Logic ---
             const modal3D = document.getElementById('model3DModal');
             const container3D = document.getElementById('model3DContainer');
@@ -692,6 +584,37 @@
             if (btnOpen3D) btnOpen3D.addEventListener('click', open3DModal);
             if (btnClose3D) btnClose3D.addEventListener('click', close3DModal);
             if (backdrop3D) backdrop3D.addEventListener('click', close3DModal);
+
+            // --- LOGIKA LOADING 3D PASTI JALAN ---
+            // Dipindahkan ke dalam DOMContentLoaded supaya elemen model-viewer
+            // & overlay sudah pasti ada di DOM saat dicari dengan getElementById.
+            const modelViewer = document.getElementById('myModelViewer');
+            const loadingOverlay = document.getElementById('custom-loading-overlay');
+            const spinner = loadingOverlay ? loadingOverlay.querySelector('svg') : null;
+            const loadingText = loadingOverlay ? loadingOverlay.querySelector('span') : null;
+
+            if (modelViewer && loadingOverlay) {
+                // Event 'load' otomatis terpicu begitu model 3D sukses di-render
+                modelViewer.addEventListener('load', () => {
+                    // 1. Buat efek fade out (transparan)
+                    loadingOverlay.classList.add('opacity-0');
+
+                    // 2. Hilangkan elemennya sepenuhnya setelah setengah detik (mengikuti durasi fade out)
+                    setTimeout(() => {
+                        loadingOverlay.classList.add('hidden');
+                    }, 500);
+                });
+
+                modelViewer.addEventListener('error', (event) => {
+                    if (spinner) spinner.style.display = 'none'; // Sembunyikan ikon muter
+                    if (loadingText) {
+                        loadingText.textContent = "GAGAL MEMUAT ASET 3D";
+                        loadingText.classList.remove('animate-pulse', 'text-gray-300');
+                        loadingText.classList.add('text-red-500'); // Ubah teks jadi merah
+                    }
+                    console.error("Detail Error Model-Viewer:", event);
+                });
+            }
         });
         // Fungsi untuk menggeser slider galeri
         function pindahSlide(index) {
@@ -720,31 +643,44 @@
     <div id="model3DModal"
         class="fixed inset-0 z-[60] flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
         <!-- Latar Belakang Gelap / Backdrop -->
-        <div id="model3DBackdrop" class="absolute inset-0 bg-black bg-opacity-80 backdrop-blur-sm cursor-pointer"></div>
+        <div id="model3DBackdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"></div>
 
+        <!-- Kontainer 3D -->
         <!-- Kontainer 3D -->
         <div id="model3DContainer"
             class="relative w-full max-w-5xl h-[80vh] bg-gray-900 rounded-2xl shadow-2xl border border-gray-700 flex flex-col overflow-hidden transform scale-95 transition-transform duration-300">
 
             <!-- Tombol Close -->
             <button id="close3DMapBtn"
-                class="absolute top-4 right-4 z-10 p-2 bg-black bg-opacity-50 hover:bg-opacity-100 rounded-full text-white transition">
+                class="absolute top-4 right-4 z-[80] p-2 bg-black/50 hover:bg-black rounded-full text-white transition">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
                     </path>
                 </svg>
             </button>
 
-            <!-- Pemutar 3D -->
-            <!-- Ganti src="Model/rumah.glb" dengan lokasi file .glb milikmu -->
-            <model-viewer src="Model/Rumahfix.glb" alt="Map 3D Rumah Lama" auto-rotate camera-controls
-                class="w-full h-full outline-none" shadow-intensity="1">
+            <!-- OVERLAY LOADING KUSTOM KITA -->
+            <div id="custom-loading-overlay"
+                class="absolute inset-0 z-[70] flex flex-col items-center justify-center bg-gray-900 transition-opacity duration-500">
+                <svg class="animate-spin h-14 w-14 text-yellow-500 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                    </path>
+                </svg>
+                <span class="text-gray-300 text-sm font-semibold animate-pulse tracking-widest">MEMUAT ASET 3D...</span>
+            </div>
+
+            <!-- Pemutar 3D (Tambahkan id="myModelViewer") -->
+            <model-viewer id="myModelViewer" src="Model/Rumahfix.glb" alt="Map 3D Rumah Lama" auto-rotate
+                camera-controls class="w-full h-full outline-none" shadow-intensity="1">
             </model-viewer>
 
             <!-- Petunjuk Penggunaan -->
-            <div class="absolute bottom-6 left-0 right-0 text-center pointer-events-none">
+            <div class="absolute bottom-6 left-0 right-0 text-center pointer-events-none z-[60]">
                 <p
-                    class="text-white text-sm bg-black bg-opacity-50 inline-block px-4 py-2 rounded-full border border-white/10 backdrop-blur-md shadow-lg">
+                    class="text-white text-sm bg-black/50 inline-block px-4 py-2 rounded-full border border-white/10 backdrop-blur-md shadow-lg">
                     Gunakan kursor atau sentuhan untuk memutar & zoom
                 </p>
             </div>
