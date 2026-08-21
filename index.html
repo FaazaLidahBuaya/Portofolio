@@ -457,66 +457,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const cards = Array.from(document.querySelectorAll('.shuffle-card'));
-            const nextBtn = document.getElementById('next-btn');
-            let isAnimating = false;
-
-            function renderCards() {
-                cards.forEach((card, index) => {
-                    // Pastikan class di sini juga pakai duration-300
-                    card.className = "shuffle-card absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out border-4 border-white bg-gray-800";
-
-                    if (index === 0) {
-                        // Foto 1 (Paling Depan)
-                        card.classList.add('z-50', 'scale-100', 'translate-x-0', 'translate-y-0', 'rotate-0', 'opacity-100');
-
-                    } else if (index === 1) {
-                        // Foto 2
-                        card.classList.add('z-40', 'scale-95', 'translate-x-6', 'translate-y-4', 'rotate-3', 'opacity-90');
-
-                    } else if (index === 2) {
-                        // Foto 3
-                        card.classList.add('z-30', 'scale-90', 'translate-x-12', 'translate-y-8', 'rotate-6', 'opacity-80');
-
-                    } else if (index === 3) {
-                        // Foto 4 (Menggunakan custom value agar transisinya mulus)
-                        card.classList.add('z-20', 'scale-[85%]', 'translate-x-[4.5rem]', 'translate-y-12', 'rotate-[9deg]', 'opacity-70');
-
-                    } else if (index === 4) {
-                        // Foto 5 (Paling Belakang)
-                        card.classList.add('z-10', 'scale-[80%]', 'translate-x-24', 'translate-y-16', 'rotate-12', 'opacity-60');
-
-                    } else {
-                        // Jika ada lebih dari 5 foto, sembunyikan di belakang layar
-                        card.classList.add('z-0', 'scale-75', 'opacity-0');
-                    }
-                });
-            }
-
-            renderCards();
-
-            nextBtn.addEventListener('click', () => {
-                if (isAnimating) return;
-                isAnimating = true;
-
-                const topCard = cards[0];
-
-                topCard.classList.remove('scale-100', 'translate-x-0', 'rotate-0');
-                topCard.classList.add('-translate-x-[120%]', '-rotate-12', 'scale-105', 'opacity-0');
-
-                // Ubah angka di bawah ini dari 500 menjadi 300 agar sesuai dengan duration-300
-                setTimeout(() => {
-                    cards.push(cards.shift());
-                    renderCards();
-
-                    setTimeout(() => {
-                        isAnimating = false;
-                    }, 50); // Jeda tombol dipercepat dari 100ms ke 50ms
-                }, 300);
-            });
-        });
-        document.addEventListener("DOMContentLoaded", function () {
-            // --- Typewriter Effect ---
+             // --- Typewriter Effect ---
             const typewriterElement = document.getElementById("typewriter");
             const text = "I'm someone who's interested in programming and 3D modeling. I dream of creating my own website. 3D modeling allows me to unleash my creativity, creating a world or object.";
             const speed = 50;
@@ -616,6 +557,63 @@
                 });
             }
         });
+            const cards = Array.from(document.querySelectorAll('.shuffle-card'));
+            const nextBtn = document.getElementById('next-btn');
+            let isAnimating = false;
+
+            function renderCards() {
+                cards.forEach((card, index) => {
+                    // Pastikan class di sini juga pakai duration-300
+                    card.className = "shuffle-card absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 ease-in-out border-4 border-white bg-gray-800";
+
+                    if (index === 0) {
+                        // Foto 1 (Paling Depan)
+                        card.classList.add('z-50', 'scale-100', 'translate-x-0', 'translate-y-0', 'rotate-0', 'opacity-100');
+
+                    } else if (index === 1) {
+                        // Foto 2
+                        card.classList.add('z-40', 'scale-95', 'translate-x-6', 'translate-y-4', 'rotate-3', 'opacity-90');
+
+                    } else if (index === 2) {
+                        // Foto 3
+                        card.classList.add('z-30', 'scale-90', 'translate-x-12', 'translate-y-8', 'rotate-6', 'opacity-80');
+
+                    } else if (index === 3) {
+                        // Foto 4 (Menggunakan custom value agar transisinya mulus)
+                        card.classList.add('z-20', 'scale-[85%]', 'translate-x-[4.5rem]', 'translate-y-12', 'rotate-[9deg]', 'opacity-70');
+
+                    } else if (index === 4) {
+                        // Foto 5 (Paling Belakang)
+                        card.classList.add('z-10', 'scale-[80%]', 'translate-x-24', 'translate-y-16', 'rotate-12', 'opacity-60');
+
+                    } else {
+                        // Jika ada lebih dari 5 foto, sembunyikan di belakang layar
+                        card.classList.add('z-0', 'scale-75', 'opacity-0');
+                    }
+                });
+            }
+
+            renderCards();
+
+            nextBtn.addEventListener('click', () => {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                const topCard = cards[0];
+
+                topCard.classList.remove('scale-100', 'translate-x-0', 'rotate-0');
+                topCard.classList.add('-translate-x-[120%]', '-rotate-12', 'scale-105', 'opacity-0');
+
+                // Ubah angka di bawah ini dari 500 menjadi 300 agar sesuai dengan duration-300
+                setTimeout(() => {
+                    cards.push(cards.shift());
+                    renderCards();
+
+                    setTimeout(() => {
+                        isAnimating = false;
+                    }, 50); // Jeda tombol dipercepat dari 100ms ke 50ms
+                }, 300);
+            });
         // Fungsi untuk menggeser slider galeri
         function pindahSlide(index) {
             const slider = document.getElementById('game-slider');
