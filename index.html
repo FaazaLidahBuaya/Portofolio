@@ -11,10 +11,103 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="Foto/pp.jpg">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+    <script>
+        /* Terapkan tema tersimpan sebelum halaman dirender agar tidak ada efek kedip (flash) */
+        (function () {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     <style>
         /* Tambahan untuk menyembunyikan loading model-viewer saat selesai */
         .hide {
             display: none !important;
+        }
+
+        /* ===== Dark Mode (Mode Malam) ===== */
+        body,
+        #about,
+        #Project,
+        footer,
+        .bg-white,
+        .bg-gray-100,
+        #about .bg-black\/15,
+        .rotate-12.bg-gray-300,
+        .rotate-6.bg-gray-400 {
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+        }
+
+        html.dark body {
+            background-color: #05070d;
+        }
+
+        html.dark #about {
+            background-color: #111827;
+        }
+
+        html.dark #Project {
+            background-color: #05070d;
+        }
+
+        html.dark footer {
+            background-color: #000000;
+        }
+
+        html.dark .bg-white {
+            background-color: #111827;
+            border-color: #374151;
+        }
+
+        html.dark .bg-gray-100 {
+            background-color: #374151;
+        }
+
+        html.dark .border-gray-200 {
+            border-color: #374151;
+        }
+
+        html.dark .text-gray-900,
+        html.dark .text-gray-800 {
+            color: #f3f4f6;
+        }
+
+        html.dark .text-gray-700 {
+            color: #e5e7eb;
+        }
+
+        html.dark .text-gray-600 {
+            color: #d1d5db;
+        }
+
+        html.dark .text-gray-500 {
+            color: #9ca3af;
+        }
+
+        html.dark .hover\:bg-gray-50:hover {
+            background-color: #374151;
+        }
+
+        /* Kotak semi-transparan (bg-black/15) di section About agar tidak menyatu dengan background gelap */
+        html.dark #about .bg-black\/15 {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        /* Kotak dekoratif di belakang foto (Guah.jpg) */
+        html.dark .rotate-12.bg-gray-300 {
+            background-color: #4b5563;
+        }
+
+        html.dark .rotate-6.bg-gray-400 {
+            background-color: #6b7280;
+        }
+
+        /* Ikon matahari/bulan pada tombol toggle */
+        #theme-toggle #icon-sun,
+        #theme-toggle #icon-moon {
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         #typewriter {
@@ -80,6 +173,24 @@
 
             </div>
         </nav>
+
+        <!-- Kotak terpisah: Tombol Ganti Tema (Terang / Malam) -->
+        <div class="fixed top-4 right-4 md:right-6 z-[100]">
+            <button id="theme-toggle" type="button" aria-label="Ganti tema terang/malam"
+                class="flex items-center justify-center w-11 h-11 bg-black/30 backdrop-blur-md rounded-full text-white shadow-md border border-white/10 hover:bg-black/50 transition duration-300">
+                <!-- Ikon Matahari: tampil saat mode malam aktif (klik untuk kembali ke terang) -->
+                <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <!-- Ikon Bulan: tampil saat mode terang aktif (klik untuk pindah ke malam) -->
+                <svg id="icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+        </div>
+
         <div class="relative z-10 flex flex-col items-center justify-center h-full space-y-4 text-center px-4">
             <p class="text-white text-2xl md:text-3xl font-bold">
                 Hi, I'm Faza | Programmer & 3D Modeling
@@ -359,7 +470,7 @@
                 <!-- Card: Lorong Sunyi -->
                 <div class="bg-white rounded-3xl p-4 shadow-sm border border-gray-200 flex flex-col">
                     <div class="rounded-2xl overflow-hidden mb-5 bg-gray-900 aspect-[4/3]">
-                        <img src="Foto/coming soon.jpeg" alt="Lorong Sunyi" class="w-full h-full object-cover">
+                        <img src="Foto/Cuaca.png" alt="Lorong Sunyi" class="w-full h-full object-cover">
                     </div>
                     <div class="flex items-center gap-2 text-sm text-gray-500 font-semibold mb-3">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -369,29 +480,29 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        Game Development
+                        Web Application
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Silent Echoes(Coming Soon)</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Weather forecast</h3>
                     <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
-                        Game horror dengan fokus pada atmosfer dan cerita psikologis.
+                        Ramalan cuaca harian yang mengupdate status cuaca setiap beberapa jam.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span
-                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">Unity</span>
-                        <span class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">C#</span>
+                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">React</span>
+                        <span class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">Js</span>
                         <span
-                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">Blender</span>
+                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">API</span>
                         <span
-                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">Texture</span>
+                            class="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded-md">Html</span>
                     </div>
-                    <button
-                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 border-2 border-gray-200 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 w-max transition duration-200">
-                        Lihat di itch.io
+                    <a href="https://github.com/FaazaLidahBuaya/weather-dashboard" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 border-2 border-gray-200 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 w-max transition duration-200 hover:translate-y-1">
+                        Lihat Detail
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
-                    </button>
+                    </a>
                 </div>
 
             </div>
@@ -457,6 +568,27 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // --- Toggle Tema Terang / Malam ---
+            const html = document.documentElement;
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const iconSun = document.getElementById('icon-sun');
+            const iconMoon = document.getElementById('icon-moon');
+
+            function updateThemeIcon() {
+                const isDark = html.classList.contains('dark');
+                iconSun.classList.toggle('hidden', !isDark);
+                iconMoon.classList.toggle('hidden', isDark);
+            }
+            updateThemeIcon();
+
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    html.classList.toggle('dark');
+                    localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+                    updateThemeIcon();
+                });
+            }
+
              // --- Typewriter Effect ---
             const typewriterElement = document.getElementById("typewriter");
             const text = "I'm someone who's interested in programming and 3D modeling. I dream of creating my own website. 3D modeling allows me to unleash my creativity, creating a world or object.";
